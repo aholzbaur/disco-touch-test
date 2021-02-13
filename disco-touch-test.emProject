@@ -1,0 +1,97 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="disco-touch-test" target="8" version="2">
+  <project Name="disco-touch-test">
+    <configuration
+      LIBRARY_IO_TYPE="None"
+      Name="Common"
+      arm_architecture="v7EM"
+      arm_compiler_variant="SEGGER"
+      arm_core_type="Cortex-M4"
+      arm_endian="Little"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_linker_heap_size="0"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="2048"
+      arm_linker_variant="SEGGER"
+      arm_rtl_variant="SEGGER"
+      arm_simulator_memory_simulation_parameter="RX 08000000,00200000,FFFFFFFF;RWX 20000000,00030000,CDCDCDCD"
+      arm_target_device_name="STM32F429ZI"
+      arm_target_interface_type="SWD"
+      debug_stack_pointer_start="__stack_end__"
+      debug_target_connection="J-Link"
+      gcc_entry_point="Reset_Handler"
+      link_linker_script_file="Setup/SEGGER_Flash.icf"
+      linker_output_format="hex"
+      linker_section_placements_segments="FLASH1 RX 0x08000000 0x00200000;RAM1 RWX 0x20000000 0x00030000"
+      project_directory=""
+      project_type="Executable" />
+    <folder Name="setup">
+      <file file_name="setup/memory_map.xml" />
+      <file file_name="setup/registers.xml" />
+      <file file_name="setup/target_script.js" />
+    </folder>
+    <folder Name="port">
+      <folder Name="cmsis">
+        <file file_name="port/cmsis/cmsis_compiler.h" />
+        <file file_name="port/cmsis/cmsis_gcc.h" />
+        <file file_name="port/cmsis/cmsis_version.h" />
+        <file file_name="port/cmsis/core_cm4.h" />
+        <file file_name="port/cmsis/mpu_armv7.h" />
+      </folder>
+      <folder Name="bsp">
+        <folder Name="src">
+          <file file_name="port/bsp/src/stm32f4xx_ll_dma.c" />
+          <file file_name="port/bsp/src/stm32f4xx_ll_gpio.c" />
+          <file file_name="port/bsp/src/stm32f4xx_ll_i2c.c" />
+          <file file_name="port/bsp/src/stm32f4xx_ll_pwr.c" />
+          <file file_name="port/bsp/src/stm32f4xx_ll_rcc.c" />
+          <file file_name="port/bsp/src/stm32f4xx_ll_utils.c" />
+        </folder>
+        <folder Name="inc">
+          <file file_name="port/bsp/inc/stm32f4xx_ll_bus.h" />
+          <file file_name="port/bsp/inc/stm32f4xx_ll_cortex.h" />
+          <file file_name="port/bsp/inc/stm32f4xx_ll_dma.h" />
+          <file file_name="port/bsp/inc/stm32f4xx_ll_gpio.h" />
+          <file file_name="port/bsp/inc/stm32f4xx_ll_i2c.h" />
+          <file file_name="port/bsp/inc/stm32f4xx_ll_pwr.h" />
+          <file file_name="port/bsp/inc/stm32f4xx_ll_rcc.h" />
+          <file file_name="port/bsp/inc/stm32f4xx_ll_system.h" />
+          <file file_name="port/bsp/inc/stm32f4xx_ll_utils.h" />
+        </folder>
+      </folder>
+      <folder Name="startup">
+        <file file_name="port/startup/system_stm32f4xx.c" />
+        <file file_name="port/startup/startup.s" />
+        <file file_name="port/startup/startup_thumb.s" />
+        <file file_name="port/startup/vectors.s" />
+      </folder>
+    </folder>
+    <configuration
+      Name="Debug"
+      arm_compiler_variant="clang"
+      arm_linker_heap_size="1024"
+      arm_rtl_variant="Embedded Studio"
+      c_preprocessor_definitions="STM32F4;STM32F429xx;USE_FULL_LL_DRIVER;HSE_VALUE=8000000"
+      c_preprocessor_undefinitions="USE_HAL_DRIVER"
+      c_user_include_directories="port/bsp/inc;port/cmsis"
+      debug_register_definition_file="$(ProjectDir)/setup/registers.xml"
+      link_linker_script_file="$(ProjectDir)/setup/linker_file.icf"
+      link_use_linker_script_file="Yes"
+      linker_memory_map_file="$(ProjectDir)/setup/memory_map.xml"
+      target_script_file="$(ProjectDir)/setup/target_script.js" />
+    <folder Name="application">
+      <file file_name="application/main.c" />
+    </folder>
+  </project>
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_optimization_level="None" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 2"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 balanced" />
+</solution>
