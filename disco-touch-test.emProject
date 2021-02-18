@@ -45,7 +45,6 @@
           <file file_name="port/bsp/src/stm32f4xx_ll_i2c.c" />
           <file file_name="port/bsp/src/stm32f4xx_ll_pwr.c" />
           <file file_name="port/bsp/src/stm32f4xx_ll_rcc.c" />
-          <file file_name="port/bsp/src/stm32f4xx_ll_utils.c" />
         </folder>
         <folder Name="inc">
           <file file_name="port/bsp/inc/stm32f4xx_ll_bus.h" />
@@ -55,8 +54,9 @@
           <file file_name="port/bsp/inc/stm32f4xx_ll_i2c.h" />
           <file file_name="port/bsp/inc/stm32f4xx_ll_pwr.h" />
           <file file_name="port/bsp/inc/stm32f4xx_ll_rcc.h" />
-          <file file_name="port/bsp/inc/stm32f4xx_ll_system.h" />
-          <file file_name="port/bsp/inc/stm32f4xx_ll_utils.h" />
+          <file file_name="port/bsp/inc/stm32f4xx.h" />
+          <file file_name="port/bsp/inc/stm32f429xx.h" />
+          <file file_name="port/bsp/inc/system_stm32f4xx.h" />
         </folder>
       </folder>
       <folder Name="startup">
@@ -81,6 +81,9 @@
       target_script_file="$(ProjectDir)/setup/target_script.js" />
     <folder Name="application">
       <file file_name="application/main.c" />
+      <file file_name="application/i2c_driver.c" />
+      <file file_name="application/i2c_driver.h" />
+      <file file_name="application/res.h" />
     </folder>
   </project>
   <configuration
